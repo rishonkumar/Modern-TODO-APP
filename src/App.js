@@ -3,8 +3,10 @@ import CustomForm from "./components/CustomForm";
 import EditForm from "./components/EditForm";
 import TaskList from "./components/TaskList";
 
+import useLocalStorage from "./hooks/useLocalStorage";
+
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useLocalStorage("react-todo.tasks", []);
   const [editedTask, setEditedTask] = useState(null);
   const [previousEl, setPreviousEl] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -45,7 +47,7 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h1>My Task List </h1>
+        <h1>TODO LIST </h1>
       </header>
 
       {isEditing && (
